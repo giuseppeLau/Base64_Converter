@@ -1,1 +1,1 @@
-Just create a new txt file named "test.txt" containing the string that you want to decode in the same folder where you compile the source code.
+Just put the encoded line that you want to decode inside the test.txt file
