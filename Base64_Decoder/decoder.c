@@ -47,7 +47,6 @@ FAIL, FAIL, FAIL, FAIL, FAIL, FAIL, FAIL, FAIL
 };
 
 
-/* FIXME Possible buffer overflow on outputs larger than B64_BUF */
 unsigned char* decode_base64(char* src,size_t ssize, size_t *ret_len)
 {
   unsigned char* outbuf;
