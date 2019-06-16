@@ -125,7 +125,7 @@ unsigned char* decode_base64(char* src,size_t ssize, size_t *ret_len)
   
   free(outbuf);
 
-  //HO DOVUTO RIMUOVERE QUESTO IF O ANDAVA IN SEGMENTATION FAULT
+  //I HAD TO COMMENT THIS LINE OR THE PROGRAM WOULD CRASH
   //if (ret_len) *ret_len = pos;
   
   return retbuf;
@@ -211,14 +211,14 @@ void print(char *t) {
 int main(int argc, char const *argv[])
 {
 
-	printf("Inizio programma. \n");
+	printf("Starting program. \n");
 	FILE *f = fopen("test.txt", "r");
-	printf("Apertura file. \n");
+	printf("Opening file. \n");
     if(f==NULL) {
     	printf("Error opening file. Closing program.\n");
     	return -1;
     }
-    printf("Il file non e' null. \n");
+    printf("Input file is not null. \n");
     fseek(f, 0, SEEK_END);
     long fsize = ftell(f);
     rewind(f);
@@ -231,23 +231,23 @@ int main(int argc, char const *argv[])
 		return 0;
     }
 
-    printf("Stringa di input: \n");
+    printf("Input String: \n");
     print(buffer);
     printf("\n");
 
     size_t size = 0;
     size = length_base64(buffer, result);
-    printf("Dimensione: %d\n", size);
+    printf("Dimension: %d\n", size);
     
     unsigned char* final = decode_base64(buffer, result, size);
 
-    printf("Stringa convertita: \n");
+    printf("Converted string: \n");
     print(final);
     printf("\n");
     
     fclose(f);
     free(buffer);
 
-    printf("Esecuzione finita. \n");
+    printf("Program execution terminated. \n");
 	return 0;
 }
